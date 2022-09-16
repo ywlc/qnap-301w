@@ -22,16 +22,16 @@ sed -i '/uci commit system/i\uci set system.@system[0].hostname='QNAP-301W'' pac
 sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
 
 # Uncomment a feed source
-#sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
+sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 
 # Add a feed source
 #echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
 #echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
 
 # 添加插件源码
-sed -i '$a src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
+echo 'src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
 echo 'src-git kenzo https://github.com/kenzok8/openwrt-packages' >>feeds.conf.default
 echo 'src-git small https://github.com/kenzok8/small' >>feeds.conf.default
 # passwall依赖
-sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
+echo 'src-git small https://github.com/kenzok8/small' feeds.conf.default
 
