@@ -13,7 +13,7 @@
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 
 # 修改openwrt登陆地址
-sed -i 's/192.168.1.1/192.168.1.1/g' package/base-files/files/bin/config_generat
+sed -i 's/192.168.1.1/192.168.100.1/g' package/base-files/files/bin/config_generat
 
 # 修改主机名字
 sed -i '/uci commit system/i\uci set system.@system[0].hostname='QNAP-301W'' package/lean/default-settings/files/zzz-default-settings
@@ -30,6 +30,8 @@ sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz
 
 # 添加插件源码
 sed -i '$a src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
+echo 'src-git kenzo https://github.com/kenzok8/openwrt-packages' >>feeds.conf.default
+echo 'src-git small https://github.com/kenzok8/small' >>feeds.conf.default
 # passwall依赖
 sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
 
